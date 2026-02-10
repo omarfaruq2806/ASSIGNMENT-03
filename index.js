@@ -46,6 +46,10 @@ function finalScore(omr) {
 // Problem-04: Upcoming Gono Vote
 
 function gonoVote(votes) {
+  if (!Array.isArray(votes)) {
+    return "Invalid";
+  }
+
   const count1 = votes.filter((vote) => {
     return vote == "ha";
   }).length;
@@ -63,6 +67,27 @@ function gonoVote(votes) {
   }
 }
 
-// console.log(gonoVote(["ha", "na", "ha", "na", "na", "na"]));
+// console.log(gonoVote(["ha"]));
 
+// Problem-05: Text Analyzer for an AI Company
 
+function analyzeText(text) {
+  if (typeof text !== "string") {
+    return "Invalid";
+  }
+
+  let words = text.trim();
+  words = words.split(" ");
+
+  let longWord = "";
+  let totalToken = 0;
+  words.forEach((currentWord) => {
+    if (currentWord.length > longWord.length) {
+      longWord = currentWord;
+    }
+    totalToken = totalToken + currentWord.length;
+  });
+  return { longWord: longWord, totalToken: totalToken };
+}
+
+// console.log(analyzeText("I am a little honest person"));
