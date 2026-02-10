@@ -10,10 +10,10 @@ function newPrice(currentPrice, discount) {
     return "Invalid";
   }
 
-  return currentPrice - (discount * currentPrice) / 100;
+  return (currentPrice - (discount * currentPrice) / 100).toFixed(3);
 }
 
-// console.log(newPrice(1500 , 20 ));
+// console.log(newPrice(55 , 89 ));
 
 // Problem-02: OTP Validation for Zapshift
 
@@ -29,3 +29,17 @@ function validOtp(otp) {
 }
 
 // console.log(validOtp("ph-helle"));
+
+
+// Problem-03: BCS Final Score Calculator
+
+function finalScore(omr) {
+  const { right, wrong, skip } = omr;
+  if (right + wrong + skip !== 100) {
+    return "Invalid";
+  }
+
+  return Math.round(right - wrong * 0.5)
+}
+
+// console.log(finalScore({ right: 50.5, wrong: 10, skip: 39.5 }));
